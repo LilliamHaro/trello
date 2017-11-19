@@ -46,6 +46,7 @@ main {
   padding: 5px;
   overflow: auto;
   margin-right: 15px;
+  overflow: hidden;
 }
 .input-post-click {
   background: linear-gradient(#cdcfd0, #d6d8da);
@@ -97,6 +98,5 @@ main {
   overflow: hidden;
   padding: 5px;
   font-size: 15px;
-  border: 8px solid #fff;
-
+  border: 1px solid #fff;
 }

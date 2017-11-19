@@ -5,6 +5,7 @@ window.addEventListener('load', function() {
   var allContainer = document.getElementById('main');
   // ------------------------------------------EVENTO CLICK EN EL INPUT----------------------------------------------------------
   input.addEventListener('click', function(event) {
+    input.value = '';
     var form = document.getElementById('form');
     var button = document.getElementById('button');
     var cross = document.getElementById('cross');
@@ -44,7 +45,7 @@ window.addEventListener('load', function() {
         newTask.setAttribute('class', 'pre-click');
         // se crea un formulario (form-textarea-button)
         var form = document.createElement('form');
-        form.setAttribute('id', 'form');
+        // form.setAttribute('id', 'form');
         var textArea = document.createElement('textarea');
         textArea.setAttribute('id', 'card');
         textArea.setAttribute('class', 'textarea-card');
