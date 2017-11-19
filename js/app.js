@@ -1,5 +1,7 @@
 window.addEventListener('load', function() {
   var input = document.getElementById('input');
+  var counter = 0;
+  var allContainer = document.getElementById('main');
   input.addEventListener('click', function(event) {
     var form = document.getElementById('form');
     var button = document.getElementById('button');
@@ -13,42 +15,60 @@ window.addEventListener('load', function() {
     if (input.value === '') {
       button.disabled = true;
     } else {
-    var nameList = document.createElement('p');
-    nameList.innerHTML = input.value;
-    nameList.setAttribute('class', 'paragraph name-list');
-    var newCard = document.createElement('p');
-    newCard.setAttribute('class', 'paragraph underline');
-    newCard.innerHTML = 'Añadir una tarjeta...';
-    var newBoard = document.createElement('div');
-
-    newBoard.setAttribute('class', 'form-post-click');
-    newBoard.appendChild(nameList);
-    newBoard.appendChild(newCard);
-    document.getElementById('main').insertBefore(newBoard, document.getElementById('main').lastElementChild);
-    document.getElementById('input').value = '';
-    }
-    newCard.addEventListener('click', function(event) {
-      newCard.setAttribute('class', 'pre-click');
-      var newForm = document.createElement('form');
-      newForm.setAttribute('id', 'form');
-      var card = document.createElement('textarea');
-      card.setAttribute('id', 'card');
-      newForm.appendChild(card);
-      card.setAttribute('class', 'textarea-card');
-      var newSaveButton = document.createElement('input');
-      newSaveButton.setAttribute('class', 'button-post-click');
-      newSaveButton.setAttribute('type', 'submit');
-      newSaveButton.setAttribute('value', 'Añadir');
-      newBoard.appendChild(newForm);
-      newBoard.appendChild(newSaveButton);
-      newSaveButton.addEventListener('click', function(event) {
-        var savedCard = document.createElement('p');
-        savedCard.innerHTML = document.getElementById('card').value;
-        savedCard.setAttribute('class', 'paragraph');
-        newBoard.appendChild(savedCard);
-        card.value = '';
+      // agregando titulo
+      // definimos el contenedor de toda la tabla
+      var newBoard = document.createElement('div');
+      newBoard.setAttribute('id', 'div');
+      newBoard.setAttribute('class', 'form-post-click');
+      // definimos el contenedor del titulo de la tabla
+      var nameList = document.createElement('p');
+      nameList.innerHTML = input.value;
+      nameList.setAttribute('class', 'paragraph name-list');
+      // anexando tabla al documento
+      allContainer.insertBefore(newBoard, allContainer.lastElementChild);
+      // anexando nombre de lista a la tabla
+      newBoard.appendChild(nameList);
+      // agregando opcion de agregar nuevas tareas
+      var newTask = document.createElement('div');
+      newTask.setAttribute('class', 'paragraph underline');
+      newTask.innerHTML = 'Añadir una tarjeta...';
+      newBoard.appendChild(newTask);
+      input.value = '';
+      // se agrupa el num de newTask existentes para saber con cual se está trbajando
+      var arrNewTask = document.getElementsByClassName('paragraph underline');
+      // evento al hacer en la opcion agregar nueva tarea
+      arrNewTask[arrNewTask.length - 1].addEventListener('click', function(event) {
+        // desaparece la opcion agregar nueva tarea
+        newTask.setAttribute('class', 'pre-click');
+        // se crea un formulario (form-textarea-button)
+        var form = document.createElement('form');
+        form.setAttribute('id', 'form');
+        var textArea = document.createElement('textarea');
+        textArea.setAttribute('id', 'card');
+        textArea.setAttribute('class', 'textarea-card');
+        form.appendChild(textArea);
+        var saveButton = document.createElement('input');
+        saveButton.setAttribute('type', 'submit');
+        saveButton.setAttribute('class', 'button-post-click');
+        saveButton.setAttribute('value', 'Añadir');
+        // form.appendChild(saveButton);
+        // se anexa el formulario al documento
+        var contForm = document.createElement('div');
+        contForm.appendChild(form);
+        contForm.appendChild(saveButton);
+        newBoard.appendChild(contForm);
+        textArea.focus();
+        saveButton.addEventListener('click', function(event) {
+          var task = document.createElement('div');
+          task.setAttribute('class', 'paragraph');
+          task.setAttribute('id', 'task' + counter);
+          task.innerHTML = textArea.value;
+          newBoard.insertBefore(task, newBoard.lastElementChild);
+          textArea.value = '';
+          textArea.focus();
+        });
       });
-    });
+    }
   });
 });
 
