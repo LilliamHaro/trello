@@ -58,10 +58,13 @@ main {
 }
 
 .button-post-click {
+  width: 75px;
+  height: 32px;
   border: none;
   background-color: #5aac44;
   border-radius: 3px;
-  padding: 8px 15px;
+  line-height: 14px;
+  text-align: center;
   color: #fff;
   font-size: 14px;
   font-weight: bold;
