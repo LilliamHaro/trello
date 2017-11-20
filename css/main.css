@@ -96,6 +96,7 @@ main {
   padding: 5px;
   overflow: auto;
   margin-right: 15px;
+  margin-bottom: 15px;
   overflow: hidden;
   font-family: 'Asul', sans-serif;
 }
