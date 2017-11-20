@@ -8,11 +8,61 @@ body {
 }
 header {
  width: 100%;
- height: 50px;
- padding: 10px;
+ height: 58px;
+ padding: 5px;
  overflow: auto;
  background-color: #0067a3;
+ font-family: 'Asul', sans-serif;
+ color: white;
+ position: relative;
 }
+.tables {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 8px;
+    border-radius: 5px;
+    margin: 5px;;
+}
+.tables .tabs-letter {
+    display: inline-block;
+}
+.search-box {
+    border-radius: 5px;
+    padding: 8px;
+}
+.search-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.trello-title {
+    display: inline-block;
+    /*para centrar el texto sin saber el tamaño del contenedor padre*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.icons-list {
+    display: inline-block;
+    float: right;
+    margin-top: 3px;
+}
+.icons-list span {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.icons-list .user {
+  display: inline-block;
+  border-radius: 50%;
+  background-color: salmon;
+  padding:8px;
+  font-size: 18px;
+}
+
 ::placeholder {
   color: rgba(255,255,255,.7);
 }
@@ -47,12 +97,14 @@ main {
   overflow: auto;
   margin-right: 15px;
   overflow: hidden;
+  font-family: 'Asul', sans-serif;
 }
 .input-post-click {
   background: linear-gradient(#cdcfd0, #d6d8da);
   border: 1px solid #998e96;
   float: left;
   margin-bottom: 5px;
+  font-family: 'Asul', sans-serif;
 }
 .input-post-click::placeholder {
   color: gray;
@@ -76,10 +128,12 @@ main {
   background-color: #006aa8;
   font-size: 16px;
   padding: 6px 8px;
-  /*background: linear-gradient(#F2F2F2,#E6E6E6);*/
-  background-color: white;
+  background: linear-gradient(#F2F2F2,#E6E6E6);
+  /*background-color: white;*/
   float: left;
   margin-bottom: 5px;
+  font-family: 'Asul', sans-serif;
+  word-wrap: break-word;
 }
 
 .name-list {
@@ -92,6 +146,7 @@ main {
   cursor: pointer;
 }
 .textarea-card {
+  font-family: 'Asul', sans-serif;
   border: none;
   width: 300px;
   height: 60px;
